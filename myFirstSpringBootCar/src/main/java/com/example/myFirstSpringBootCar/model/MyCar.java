@@ -21,19 +21,18 @@ public class MyCar {
     @Column(name = "car_make")
     private String carMake;
 
-    @Column(name = "car_year")
-    private String carYear;
-
-
     @Column(name = "car_model")
     private String carModel;
+
+    @Column(name = "car_year")
+    private Long carYear;
 
     public MyCar() {
         super();
     }
 
 
-    public MyCar(long id, String carMake, String carYear, String carModel) {
+    public MyCar(long id, String carMake, Long carYear, String carModel) {
         this.id = id;
         this.carMake = carMake;
         this.carYear = carYear;
@@ -56,11 +55,11 @@ public class MyCar {
         this.carMake = carMake;
     }
 
-    public String getCarYear() {
+    public Long getCarYear() {
         return carYear;
     }
 
-    public void setCarYear(String carYear) {
+    public void setCarYear(Long carYear) {
         this.carYear = carYear;
     }
 

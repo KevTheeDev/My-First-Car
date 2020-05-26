@@ -1,9 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
 
+const apiKey = 'Q7ETUV8Rk5nafySLHsgCddQslFgI8xWI';
+
 class App extends Component {
 
-  
   state = {
     isLoading: true,
     employees: []
@@ -12,12 +13,19 @@ class App extends Component {
   async componentDidMount() {
     const response = await fetch('my_cars_api/v1/urcars');
     const body = await response.json();
-    this.setState({ employees: body, isLoading: false });
-    console.log(this.state.employees)
+    this.setState({ urcars: body, isLoading: false });
+    console.log(this.state.urcars)
+  }
+
+  async thirdPartyApi(){
+    const response = await fetch('my_cars_api/v1/urcars');
+    const body = await response.json();
+    this.setState({ urcars: body, isLoading: false });
+    console.log(this.state.urcars)
   }
 
   render() {
-    const {employees, isLoading} = this.state;
+    const {urcars, isLoading} = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -27,17 +35,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className="App-intro">
-            <h2>Employee List</h2>
-            {employees.map(employee =>
-              <div key={employee.id}>
-                <li>
-
-                {employee.firstName}
-                <br></br>
-                {employee.lastName}
-                <br></br>
-                {employee.email}
-                </li>
+            <h2>Car List</h2>
+            {urcars.map(car =>
+              <div key={car.id}>
+                <li> {car.carMake} {car.carModel} {car.carYear}</li>
               </div>
             )}
           </div>
