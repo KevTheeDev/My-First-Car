@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CarServiceImplecations {
+public class CarServiceImplecations implements CarService {
     @Autowired
     private CarRepository carRepository;
 
     @Override
-    public CarTable createCar(CarTable carTable){
+    public CarTable createCarTable(CarTable carTable){
         return carRepository.save(carTable);
     }
 
-    @Override
-    public Iterable<CarTable> list() {
-        return carRepository.findAll();
-    }
+//    @Override
+//    public Iterable<CarTable> listCarTable() {
+//        return carRepository.findAll();
+//    }
 
 }

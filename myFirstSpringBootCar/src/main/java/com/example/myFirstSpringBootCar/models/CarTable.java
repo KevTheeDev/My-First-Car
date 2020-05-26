@@ -34,27 +34,28 @@ public class CarTable {
         return carid;
     }
 
-    public String getCarMake() {
-        return carMake;
-    }
-
     public void setCarMake(String carMake) {
         this.carMake = carMake;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public String getCarMake() {
+        return carMake;
     }
 
     public void setCarModel(String carModel) {
         this.carModel = carModel;
     }
 
-    public int getCarYear() {
-        return carYear;
+    public String getCarModel() {
+        return carModel;
     }
+
 
     public void setCarYear(int carYear) {
         this.carYear = carYear;
+    }
+
+    public int getCarYear() {
+        return carYear;
     }
 }
