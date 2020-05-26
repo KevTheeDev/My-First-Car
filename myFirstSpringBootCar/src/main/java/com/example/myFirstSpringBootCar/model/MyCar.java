@@ -1,4 +1,4 @@
-package com.example.myFirstSpringBootCar.models;
+package com.example.myFirstSpringBootCar.model;
 
 import javax.persistence.Column;
 
@@ -6,13 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
 
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class MyCar {
 
     @Id
     @GeneratedValue
@@ -30,11 +28,11 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
-    public Employee() {
+    public MyCar() {
         super();
     }
 
-    public Employee(String firstName, String lastName, String email) {
+    public MyCar(String firstName, String lastName, String email) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
