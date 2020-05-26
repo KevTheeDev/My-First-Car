@@ -21,7 +21,7 @@ public class CarController {
     private CarRepository carRepository;
     //  get all cars
     @GetMapping("/urcars")
-    public List<MyCar> getAllEmployees(Model model) {
+    public List<MyCar> getAllCars(Model model) {
         return this.carRepository.findAll();
     }
 
@@ -30,10 +30,10 @@ public class CarController {
 //  get all cars by id
 
     @GetMapping("/urcars/{id}")
-    public ResponseEntity<MyCar> getEmployeeById(@PathVariable(value = "id") Long employeeId)
+    public ResponseEntity<MyCar> getCarById(@PathVariable(value = "id") Long carId)
             throws ResourcesNotFoundException {
-        MyCar myCar = carRepository.findById(employeeId)
-                .orElseThrow(() -> new ResourcesNotFoundException("MyCar not found for this id :: " + employeeId));
+        MyCar myCar = carRepository.findById(carId)
+                .orElseThrow(() -> new ResourcesNotFoundException("MyCar not found for this id :: " + carId));
         return ResponseEntity.ok().body(myCar);
     }
 
@@ -46,16 +46,16 @@ public class CarController {
 //  Update Cars
 
     @PutMapping("/urcars/{id}")
-    public ResponseEntity<MyCar> updateEmployee(@PathVariable(value = "id") Long employeeId,
+    public ResponseEntity<MyCar> updateCar(@PathVariable(value = "id") Long carId,
                                                 @Valid @RequestBody MyCar myCarDetails)
             throws ResourcesNotFoundException {
-        MyCar myCar = carRepository.findById(employeeId)
-                .orElseThrow(()-> new ResourcesNotFoundException("MyCar not found for this id :: " + employeeId));
+        MyCar myCar = carRepository.findById(carId)
+                .orElseThrow(()-> new ResourcesNotFoundException("MyCar not found for this id :: " + carId));
 
 
-        myCar.setEmail(myCarDetails.getEmail());
-        myCar.setFirstName(myCarDetails.getFirstName());
-        myCar.setLastName(myCarDetails.getLastName());
+        myCar.setCarMake(myCarDetails.getCarMake());
+        myCar.setCarModel(myCarDetails.getCarModel());
+        myCar.setCarYear(myCarDetails.getCarYear());
 
 
         final MyCar updatedMyCar = carRepository.save(myCar);
@@ -68,10 +68,10 @@ public class CarController {
 //  Delete MyCar
 
     @DeleteMapping("/urcars/{id}")
-    public Map<String, Boolean> deletedEmployee(@PathVariable(value = "id") Long employeeId)
+    public Map<String, Boolean> deletedEmployee(@PathVariable(value = "id") Long carId)
             throws ResourcesNotFoundException {
-        MyCar myCar = carRepository.findById(employeeId)
-                .orElseThrow(()-> new ResourcesNotFoundException("MyCar not found for this id :: " + employeeId));
+        MyCar myCar = carRepository.findById(carId)
+                .orElseThrow(()-> new ResourcesNotFoundException("MyCar not found for this id :: " + carId));
 
         carRepository.delete(myCar);
         Map<String, Boolean> response = new HashMap<>();
