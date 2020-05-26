@@ -9,34 +9,35 @@ import javax.persistence.Id;
 
 
 @Entity
-@Table(name = "employees")
+@Table(name = "my_cars")
 public class MyCar {
 
     @Id
     @GeneratedValue
-    @Column(name = "emp_id")
+    @Column(name = "car_id")
     private long id;
 
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "car_make")
+    private String carMake;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "car_year")
+    private String carYear;
 
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "car_model")
+    private String carModel;
 
     public MyCar() {
         super();
     }
 
-    public MyCar(String firstName, String lastName, String email) {
-        super();
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+
+    public MyCar(long id, String carMake, String carYear, String carModel) {
+        this.id = id;
+        this.carMake = carMake;
+        this.carYear = carYear;
+        this.carModel = carModel;
     }
 
     public long getId() {
@@ -47,30 +48,27 @@ public class MyCar {
         this.id = id;
     }
 
-
-    public String getFirstName() {
-        return firstName;
+    public String getCarMake() {
+        return carMake;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setCarMake(String carMake) {
+        this.carMake = carMake;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getCarYear() {
+        return carYear;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setCarYear(String carYear) {
+        this.carYear = carYear;
     }
 
-
-    public String getEmail() {
-        return email;
+    public String getCarModel() {
+        return carModel;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
     }
-
 }
