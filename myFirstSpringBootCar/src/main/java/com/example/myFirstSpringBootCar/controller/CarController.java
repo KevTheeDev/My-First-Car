@@ -26,7 +26,6 @@ public class CarController {
     }
 
 
-
 //  get all cars by id
 
     @GetMapping("/urcars/{id}")
